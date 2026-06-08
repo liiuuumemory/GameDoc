@@ -15,6 +15,7 @@
 - 命名系统：已整理
 - 第一章《线外》：已有完整脚本
 - Godot playable demo：见 [godot-demo/README.md](godot-demo/README.md) 和 [godot-demo/project.godot](godot-demo/project.godot)
+- Godot playable demo 下载：[Windows ZIP](https://github.com/liiuuumemory/GameDoc/raw/main/godot-demo/releases/TheLineNorthbank_Demo_Windows.zip)
 - 第二章《复核》：新版冲突结构已确定，脚本整理中
 - 派系动机：居民、管理局、设施方、安息所、越线者已建立
 - 隐藏支线《旧风道》：概念已确定
