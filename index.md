@@ -13,15 +13,29 @@
 
 - 世界观基底：已建立
 - 命名系统：已整理
-- 第一章《线外》：已有完整脚本
+- 第一章《线外》：Godot graybox playable build 已导出 Windows 包
 - Godot playable demo：见 [godot-demo/README.md](godot-demo/README.md) 和 [godot-demo/project.godot](godot-demo/project.godot)
 - Godot playable demo 下载：[Windows ZIP](https://github.com/liiuuumemory/GameDoc/raw/main/godot-demo/releases/TheLineNorthbank_Demo_Windows.zip)
-- 第二章《复核》：新版冲突结构已确定，脚本整理中
+- 第二章《复核》：文档设计中，尚未进入 demo
 - 派系动机：居民、管理局、设施方、安息所、越线者已建立
-- 隐藏支线《旧风道》：概念已确定
+- 隐藏支线《旧风道》：文档设定中，尚未进入 demo
 - 北岸表层接缝设定：已加入世界观
-- 真结局《仍有余温之地》：保留方向，不在前期展开
+- 真结局《仍有余温之地》：保留方向，不在 demo 中展开
 - 主角身世：暂未写入当前版本
+
+## Playable Build / 可玩版本
+
+当前仓库包含一个 Windows playable build。
+
+| Item | Path |
+|---|---|
+| Godot project | `godot-demo/project.godot` |
+| Windows build | `godot-demo/releases/TheLineNorthbank_Demo_Windows.zip` |
+| GitHub download | [Windows ZIP](https://github.com/liiuuumemory/GameDoc/raw/main/godot-demo/releases/TheLineNorthbank_Demo_Windows.zip) |
+| Demo README | `godot-demo/README.md` |
+| Build status | Playable graybox demo |
+
+Windows zip 中包含 `TheLineNorthbank_Demo.exe`。当前导出使用 embedded PCK，没有单独 `.pck` 文件。
 
 ## Reading Order / 推荐阅读顺序
 
@@ -59,8 +73,8 @@
 
 | Category | Document | Version | Status | Spoiler Level | Notes |
 |---|---|---|---|---|---|
-| Overview | [项目概述](docs/overview.md) | v0.2 | Draft | Public | 项目阶段与写作边界 |
-| Versioning | [文档版本管理](docs/versioning.md) | v0.1 | Draft | Public | 同文件历史版本规则 |
+| Overview | [项目概述](docs/overview.md) | v0.3 | Draft | Public | 项目阶段与写作边界 |
+| Versioning | [文档版本管理](docs/versioning.md) | v0.2 | Draft | Public | 同文件历史版本规则 |
 | Naming | [命名系统](docs/naming-system.md) | v0.2 | Draft | Public | 英文正式名与中文正文用名 |
 | Story | [整体剧情结构](docs/story-structure.md) | v0.3 | Draft | Design | 四章结构与真结局路线 |
 | World | [北岸设定](docs/world/northbank.md) | v0.2 | Draft | Design | 北岸、表层接缝、温度反常 |
@@ -77,28 +91,35 @@
 | Design | [测绘系统](docs/design/survey-system.md) | v0.1 | Draft | Design | 信标、图层、模型偏差 |
 | Design | [选择变量](docs/design/choice-variables.md) | v0.1 | Draft | Design | 剧情变量方向 |
 | Art | [视觉方向](docs/art/visual-direction.md) | v0.1 | Draft | Public | 北岸视觉方向 |
-| Production | [Demo 范围](docs/production/demo-scope.md) | v0.1 | Draft | Public | 当前 demo 范围 |
+| Production | [Demo 范围](docs/production/demo-scope.md) | v0.2 | Playable | Public | 第一章 Windows playable build |
+| Production | [Godot Demo Scope](godot-demo/docs/demo-scope.md) | build-2026-06-09 | Playable | Public | Godot demo 范围 |
+| Production | [Godot Implementation Plan](godot-demo/docs/implementation-plan.md) | build-2026-06-09 | Playable | Public | Godot demo 实现状态 |
+| Production | [Godot Demo README](godot-demo/README.md) | build-2026-06-09 | Playable | Public | 运行方式与已知问题 |
+| Production | [Windows ZIP](godot-demo/releases/TheLineNorthbank_Demo_Windows.zip) | build-2026-06-09 | Playable | Public | 可下载试玩包 |
 
 ## Demo Scope / Demo 范围
 
 当前 demo 聚焦第一章《线外》：
 
-- 抵达北岸
-- 接收临时复核任务
+- 测绘办公室接任务
 - 市场街布设信标
 - 俊拿走第三个信标
-- 进入旧街区
-- 对比轨道图层与地面图层
-- 提交第一份报告
+- 旧街区扫描
+- 图层对比
+- 二号门设施数据
+- 报告终端
+- 第一章结尾摘要
 
 暂不制作：
 
+- 第二章
 - 七号泵房完整故障
 - 旧风道隐藏支线
 - 真结局
 - 主角身世
-- 下层结构正面展示
-- 越线者完整路线
+- 正式美术
+- 完整音效
+- 复杂存档
 
 ## Writing Guardrails / 写作边界
 
@@ -114,6 +135,7 @@
 
 ## Changelog / 最近更新
 
+- 2026-06-09：导出 Windows playable build，并同步 Godot demo 下载与运行说明。
 - 整理项目文档结构。
 - 加入北岸表层接缝设定。
 - 更新第二章《复核》新版冲突。

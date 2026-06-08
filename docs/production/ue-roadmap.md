@@ -3,6 +3,8 @@
 
 本文档用于后续拆分 Unreal Engine 实现任务。
 
+> 备注：当前可玩 demo 使用 Godot 4.x 实现，并已导出 Windows playable build。本文档保留为未来 Unreal Engine 方向的占位路线，不代表当前 demo 技术栈。
+
 ## 初步阶段
 
 - 搭建第一章灰盒场景。

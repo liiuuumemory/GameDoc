@@ -1,18 +1,39 @@
 # The Line: Northbank
 ## 《线：北岸》
 
-电影化强叙事科幻 RPG 企划。玩家扮演一名测绘员，在北岸执行临时复核，记录轨道图层、地面图层、居民经验与设施记录之间的偏差。
+电影化强叙事科幻 RPG 企划。当前仓库包含 GameDoc 文档与 Godot playable demo。Demo 聚焦第一章《线外》的灰盒可玩版本。
 
-当前阶段：世界观结构、第一章脚本、第二章设计、派系动机与隐藏支线整理中。
+## Playable Demo
+
+A Windows playable build is available in the repository.
+
+- Demo folder: `godot-demo/`
+- Windows build: `godot-demo/releases/TheLineNorthbank_Demo_Windows.zip`
+- GitHub download: [Windows ZIP](https://github.com/liiuuumemory/GameDoc/raw/main/godot-demo/releases/TheLineNorthbank_Demo_Windows.zip)
+- Godot project: `godot-demo/project.godot`
+- Demo status: Chapter 1 graybox playable build
+
+## How to Run
+
+### Windows build
+
+1. Download or clone this repository.
+2. Open `godot-demo/releases/TheLineNorthbank_Demo_Windows.zip`.
+3. Extract the zip file.
+4. Run `TheLineNorthbank_Demo.exe`.
+
+The current Windows export embeds the Godot PCK into the executable, so there is no separate `.pck` file.
+
+### Godot editor
+
+1. Install Godot 4.x.
+2. Open Godot.
+3. Import `godot-demo/project.godot`.
+4. Run the project from the editor.
 
 ## Documents
 
 - [Project Index](index.md)
-- [Godot Playable Demo](godot-demo/README.md)
-- [Godot Project File](godot-demo/project.godot)
 - [Story Structure](docs/story-structure.md)
 - [Naming System](docs/naming-system.md)
-- [Chapter 1: Outside](docs/story/chapter-01-outside.md)
-- [Chapter 2: Review](docs/story/chapter-02-review.md)
-
-详细文档索引、剧透等级和版本管理说明见 [index.md](index.md)。
+- [Godot Demo README](godot-demo/README.md)

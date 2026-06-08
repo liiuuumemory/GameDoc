@@ -1,70 +1,83 @@
 # The Line: Northbank - Godot Demo
+## 《线：北岸》Godot Demo
 
-## 当前版本
+## Current Build / 当前版本
 
-这是第一章《线外》的 Godot 4.x 灰盒 playable demo。当前版本用于验证第一章主流程、场景节奏、交互系统、报告选择和临时 2.5D 视觉方向。
+当前版本是第一章《线外》的 Godot 4.x graybox playable build，已经导出 Windows playable build。它用于验证第一章主流程、场景节奏、交互系统、报告选择和临时 2.5D 视觉方向，不代表最终美术和最终剧本质量。
 
-## 运行方式
+## How to Run / 运行方式
 
-1. 安装 Godot 4.x。
-2. 打开 Godot。
-3. 选择 **Import** / **Open**。
-4. 选择 `godot-demo/project.godot`。
-5. 点击 **Run**。
+### Windows build
 
-如果从仓库根目录打开，请确认导入的是 `godot-demo/project.godot`，不是仓库根目录。
+1. Open `godot-demo/releases/TheLineNorthbank_Demo_Windows.zip`.
+2. Extract the zip file.
+3. Run `TheLineNorthbank_Demo.exe`.
 
-## 当前可玩内容
+The current export embeds the Godot PCK into the executable. There is no separate `.pck` file in the zip.
 
-- 测绘办公室接收临时复核任务
-- 领取测绘仪和三枚信标
-- 市场街布设信标
-- 第三枚信标偏移到旧街区
-- 与俊、陈玛拉、沃德女士等角色进行短对话
-- 旧街区现场扫描
-- 轨道图层与地面图层对比
-- 二号门读取设施侧数据
-- 返回测绘办公室提交第一章报告
-- 查看第一章结尾摘要并返回主菜单
+GitHub download: [Windows ZIP](https://github.com/liiuuumemory/GameDoc/raw/main/godot-demo/releases/TheLineNorthbank_Demo_Windows.zip)
 
-## 操作
+### Godot editor
 
-- 移动：WASD 或方向键
-- 交互：E
-- 关闭当前弹出 UI：Esc 或 UI 内的关闭按钮
+1. Install Godot 4.x.
+2. Open Godot.
+3. Import `godot-demo/project.godot`.
+4. Run the project.
 
-## 临时美术
+If opening from the repository root, make sure to import `godot-demo/project.godot`, not the repository root.
 
-当前美术资源是 Art Pass 0 的临时 2.5D 灰盒资源，路径：
+## Playable Content / 当前可玩内容
+
+- Main menu
+- Survey Office
+- Market Street
+- Old Blocks
+- Gate Two
+- Report terminal
+- Chapter 1 ending summary
+
+The playable flow includes accepting the survey task, placing beacons, following the third beacon into Old Blocks, scanning local points, comparing layers, checking Gate Two facility data, submitting a report, and returning to the main menu.
+
+## Controls / 操作
+
+- Move: WASD / Arrow Keys
+- Interact: E
+- Close UI / Cancel: Esc
+- Mouse: UI selection
+
+## Placeholder Art / 临时美术
+
+Current art resources are Art Pass 0 temporary 2.5D graybox assets:
 
 `res://assets/placeholder_2_5d/`
 
-资源生成脚本：
+Generation script:
 
 `tools/generate_placeholder_art.py`
 
-如需重新生成占位 SVG：
+To regenerate placeholder SVG files:
 
 ```powershell
 python tools/generate_placeholder_art.py
 ```
 
-正式美术可通过保持同名文件替换，或在 `.tscn` 场景中更新 `Texture2D` 引用。
+Final art can replace files with the same names, or scene `Texture2D` references can be updated in the relevant `.tscn` files.
 
-## 暂未实现
+## Known Issues / 已知问题
 
-- 第二章
+- Graybox art is still placeholder-only.
+- UI and text pacing still need polish.
+- Character dialogue and map rhythm are still being tuned.
+- Chapter 2 is not implemented.
+- This build is mainly for internal playtesting and flow validation.
+- Report choices are not connected to later chapters yet.
+
+## Not Included / 暂未包含
+
+- 第二章《复核》
 - 旧风道隐藏支线
-- 真结局
+- 下层结构或后期真相
+- 主角身世
 - 正式美术
 - 完整音效
-- 复杂存档
-- 报告选择对后续章节的完整影响
-
-## 已知问题
-
-- 灰盒美术仍为占位资源。
-- 对话和地图节奏仍需继续打磨。
-- UI 视觉不是最终版。
-- 信标与扫描反馈目前使用文字提示，完整音效尚未制作。
-- 报告后续影响暂未接入后续章节。
+- 存档系统

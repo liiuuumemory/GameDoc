@@ -1,7 +1,7 @@
 # 文档版本管理
 
-> 当前版本：v0.1
-> 最后更新：2026-06-08
+> 当前版本：v0.2
+> 最后更新：2026-06-09
 > 状态：Draft
 > 剧透等级：Public
 
@@ -55,6 +55,20 @@
 历史版本只作参考，不代表当前设定。
 
 如果旧版本包含已废弃命名或设定，不需要删除，但应标注“已归档”。
+
+## Release Sync
+
+当 demo 导出 playable build 时，需要同步更新：
+
+- 根目录 `README.md`
+- 根目录 `index.md`
+- `godot-demo/README.md`
+- `docs/production/demo-scope.md`
+- 相关 production 文档中的 build 状态和下载路径
+
+当前 Windows playable build 路径：
+
+`godot-demo/releases/TheLineNorthbank_Demo_Windows.zip`
 
 ---
 

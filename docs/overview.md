@@ -1,8 +1,8 @@
 # Overview
 ## 项目概览
 
-> 当前版本：v0.2
-> 最后更新：2026-06-08
+> 当前版本：v0.3
+> 最后更新：2026-06-09
 > 状态：Draft
 > 剧透等级：Public
 
@@ -24,6 +24,7 @@
 ## 当前阶段
 
 - 世界观结构、第一章脚本、第二章设计、派系动机与隐藏支线整理中。
+- 第一章 Godot graybox playable build 已导出 Windows 包，见 [godot-demo/README.md](../godot-demo/README.md)。
 - 第一章脚本已整理到 [chapter-01-outside.md](story/chapter-01-outside.md)。
 - 第二章新版设计已整理到 [chapter-02-review.md](story/chapter-02-review.md)。
 - 隐藏支线“旧风道”已整理到 [hidden-old-duct.md](story/hidden-old-duct.md)。
