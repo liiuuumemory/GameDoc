@@ -17,5 +17,5 @@ docs/index.md
 Naming system:
 
 ```text
-naming-system.md
+docs/naming-system.md
 ```

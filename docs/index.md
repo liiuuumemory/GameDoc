@@ -17,7 +17,7 @@
 | 文档 | 用途 | 链接 |
 |---|---|---|
 | Overall Story Structure（整体剧情结构） | 完整剧情总纲、章节衔接和主题主线 | [阅读总纲](story-structure.md) |
-| Naming System（命名系统） | 项目命名、术语、角色名和废弃词清单 | [查看规范](https://github.com/liiuuumemory/GameDoc/blob/main/naming-system.md) |
+| 命名系统 | 项目命名、术语、角色名和废弃词清单 | [查看规范](naming-system.md) |
 
 ## 后续章节预留
 
