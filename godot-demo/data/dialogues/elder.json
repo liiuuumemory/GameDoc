@@ -1,0 +1,15 @@
+{
+  "start": {
+    "speaker": "旧街区老人",
+    "text": "别站在门口看。屋里有读数。",
+    "options": [
+      {
+        "text": "我去测。",
+        "set": {
+          "current_objective": "读取现场温度"
+        },
+        "next": null
+      }
+    ]
+  }
+}

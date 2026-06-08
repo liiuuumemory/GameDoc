@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/LayerCompareUI.gd" id="1_layer_compare"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/icon_orbital_layer.svg" id="2_orbital_icon"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/icon_ground_layer.svg" id="3_ground_icon"]
+
+[node name="LayerCompareUI" type="CanvasLayer"]
+script = ExtResource("1_layer_compare")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28)
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -178.0
+offset_right = 360.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "轨道图层 / 地面图层对比"
+horizontal_alignment = 1
+
+[node name="IconRow" type="HBoxContainer" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 24
+
+[node name="OrbitalIcon" type="TextureRect" parent="Panel/MarginContainer/VBox/IconRow"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("2_orbital_icon")
+stretch_mode = 5
+
+[node name="GroundIcon" type="TextureRect" parent="Panel/MarginContainer/VBox/IconRow"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("3_ground_icon")
+stretch_mode = 5
+
+[node name="Columns" type="HBoxContainer" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="OrbitalSummary" type="Label" parent="Panel/MarginContainer/VBox/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "轨道图层摘要
+旧街区：低活动
+居住状态：缓冲状态 / 待复核
+热稳定性：低
+建议：不建议长期居住"
+autowrap_mode = 3
+
+[node name="GroundSummary" type="Label" parent="Panel/MarginContainer/VBox/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "地面图层摘要
+室内温度：高于预测
+旧传感器：未纳入当前校正
+管线读数：高于登记值
+现场结论：需要补充复核"
+autowrap_mode = 3
+
+[node name="ExtraLabel" type="Label" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "地面图层材料较完整，但仍不足以直接改变居住状态。"
+autowrap_mode = 3
+
+[node name="ButtonRow" type="HBoxContainer" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DraftButton" type="Button" parent="Panel/MarginContainer/VBox/ButtonRow"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "创建偏差附录草稿"
+
+[node name="NoteButton" type="Button" parent="Panel/MarginContainer/VBox/ButtonRow"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "仅保存现场备注"
+
+[node name="CloseButton" type="Button" parent="Panel/MarginContainer/VBox/ButtonRow"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "关闭"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBox/ButtonRow/DraftButton" to="." method="_on_draft_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBox/ButtonRow/NoteButton" to="." method="_on_note_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBox/ButtonRow/CloseButton" to="." method="_on_close_button_pressed"]

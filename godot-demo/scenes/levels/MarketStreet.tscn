@@ -1,0 +1,240 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/Player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scripts/interactables/Terminal.gd" id="2_terminal"]
+[ext_resource type="Script" path="res://scripts/interactables/BeaconPoint.gd" id="3_beacon"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/floor_market.svg" id="4_floor_market"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/mara_chen_idle.svg" id="5_mara"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/beacon.svg" id="7_beacon_art"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/doorway.svg" id="8_doorway"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/notice_board.svg" id="9_notice"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/old_status_line.svg" id="13_status_line"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npc"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beacon"]
+size = Vector2(42, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(74, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_notice"]
+size = Vector2(68, 46)
+
+[node name="MarketStreet" type="Node2D"]
+
+[node name="StreetFloor" type="Polygon2D" parent="."]
+color = Color(0.14, 0.16, 0.15, 1)
+polygon = PackedVector2Array(20, 20, 940, 20, 940, 520, 20, 520)
+
+[node name="ArtFloor" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("4_floor_market")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 30.0
+offset_right = 330.0
+offset_bottom = 58.0
+text = "市场街 / Market Street"
+
+[node name="StatusLine" type="Polygon2D" parent="."]
+color = Color(0.8, 0.78, 0.32, 1)
+polygon = PackedVector2Array(690, 342, 850, 342, 850, 351, 690, 351)
+
+[node name="ArtStatusLine" type="Sprite2D" parent="."]
+position = Vector2(770, 335)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("13_status_line")
+
+[node name="StatusLineLabel" type="Label" parent="."]
+offset_left = 700.0
+offset_top = 358.0
+offset_right = 875.0
+offset_bottom = 384.0
+text = "旧状态线（占位）"
+
+[node name="NoticeBoard" type="Area2D" parent="."]
+position = Vector2(220, 245)
+script = ExtResource("2_terminal")
+prompt_text = "公告栏"
+dialogue_path = "res://data/dialogues/market_notice.json"
+
+[node name="ArtSprite" type="Sprite2D" parent="NoticeBoard"]
+position = Vector2(0, -16)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("9_notice")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeBoard"]
+shape = SubResource("RectangleShape2D_notice")
+
+[node name="Label" type="Label" parent="NoticeBoard"]
+offset_left = -36.0
+offset_top = 28.0
+offset_right = 58.0
+offset_bottom = 52.0
+text = "公告栏"
+
+[node name="MaraChen" type="Area2D" parent="."]
+position = Vector2(500, 245)
+script = ExtResource("2_terminal")
+prompt_text = "陈玛拉"
+dialogue_path = "res://data/dialogues/mara_chen.json"
+
+[node name="Visual" type="Polygon2D" parent="MaraChen"]
+color = Color(0.78, 0.42, 0.35, 1)
+polygon = PackedVector2Array(-15, -18, 15, -18, 15, 18, -15, 18)
+
+[node name="ArtSprite" type="Sprite2D" parent="MaraChen"]
+position = Vector2(0, -28)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("5_mara")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaraChen"]
+shape = SubResource("RectangleShape2D_npc")
+
+[node name="NameLabel" type="Label" parent="MaraChen"]
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 62.0
+offset_bottom = 48.0
+text = "陈玛拉"
+
+[node name="BeaconPoint1" type="Area2D" parent="."]
+position = Vector2(360, 260)
+script = ExtResource("3_beacon")
+prompt_text = "信标点 1"
+beacon_id = 1
+
+[node name="Visual" type="Polygon2D" parent="BeaconPoint1"]
+color = Color(0.34, 0.62, 0.9, 1)
+polygon = PackedVector2Array(0, -24, 24, 0, 0, 24, -24, 0)
+
+[node name="ArtSprite" type="Sprite2D" parent="BeaconPoint1"]
+position = Vector2(0, -14)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("7_beacon_art")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeaconPoint1"]
+shape = SubResource("RectangleShape2D_beacon")
+
+[node name="BeaconLabel" type="Label" parent="BeaconPoint1"]
+offset_left = -42.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 54.0
+text = "信标点 1"
+
+[node name="BeaconPoint2" type="Area2D" parent="."]
+position = Vector2(640, 275)
+script = ExtResource("3_beacon")
+prompt_text = "信标点 2"
+beacon_id = 2
+
+[node name="Visual" type="Polygon2D" parent="BeaconPoint2"]
+color = Color(0.34, 0.62, 0.9, 1)
+polygon = PackedVector2Array(0, -24, 24, 0, 0, 24, -24, 0)
+
+[node name="ArtSprite" type="Sprite2D" parent="BeaconPoint2"]
+position = Vector2(0, -14)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("7_beacon_art")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeaconPoint2"]
+shape = SubResource("RectangleShape2D_beacon")
+
+[node name="BeaconLabel" type="Label" parent="BeaconPoint2"]
+offset_left = -42.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 54.0
+text = "信标点 2"
+
+[node name="ExitToOldBlocks" type="Area2D" parent="."]
+position = Vector2(850, 330)
+script = ExtResource("2_terminal")
+prompt_text = "出口：旧街区"
+mode = 2
+target_scene = "res://scenes/levels/OldBlocks.tscn"
+required_flag = "beacon_3_stolen"
+set_flag_on_use = "old_blocks_entered"
+objective_on_use = "查找偏移的第三信标"
+feedback_on_use = "进入旧街区。第三信标信号更近了。"
+blocked_text = "信标 3 尚未偏离原路线。"
+
+[node name="Visual" type="Polygon2D" parent="ExitToOldBlocks"]
+color = Color(0.25, 0.24, 0.22, 1)
+polygon = PackedVector2Array(-37, -21, 37, -21, 37, 21, -37, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="ExitToOldBlocks"]
+position = Vector2(0, -20)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("8_doorway")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOldBlocks"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="ExitLabel" type="Label" parent="ExitToOldBlocks"]
+offset_left = -46.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 52.0
+text = "旧街区"
+
+[node name="ExitToGateTwo" type="Area2D" parent="."]
+position = Vector2(850, 195)
+script = ExtResource("2_terminal")
+prompt_text = "出口：二号门"
+mode = 2
+target_scene = "res://scenes/levels/GateTwo.tscn"
+required_flag = "layer_compare_done"
+blocked_text = "请先完成旧街区图层对比。"
+
+[node name="Visual" type="Polygon2D" parent="ExitToGateTwo"]
+color = Color(0.18, 0.34, 0.45, 1)
+polygon = PackedVector2Array(-37, -21, 37, -21, 37, 21, -37, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="ExitToGateTwo"]
+position = Vector2(0, -20)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("8_doorway")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToGateTwo"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="ExitLabel" type="Label" parent="ExitToGateTwo"]
+offset_left = -46.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 52.0
+text = "二号门"
+
+[node name="ExitToOffice" type="Area2D" parent="."]
+position = Vector2(85, 275)
+script = ExtResource("2_terminal")
+prompt_text = "返回：测绘办公室"
+mode = 2
+target_scene = "res://scenes/levels/SurveyOffice.tscn"
+
+[node name="Visual" type="Polygon2D" parent="ExitToOffice"]
+color = Color(0.18, 0.36, 0.45, 1)
+polygon = PackedVector2Array(-37, -21, 37, -21, 37, 21, -37, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="ExitToOffice"]
+position = Vector2(0, -20)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("8_doorway")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOffice"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="ExitLabel" type="Label" parent="ExitToOffice"]
+offset_left = -46.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 52.0
+text = "办公室"
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(120, 275)

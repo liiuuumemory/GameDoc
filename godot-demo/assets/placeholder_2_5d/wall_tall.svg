@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="144" viewBox="0 0 160 144" shape-rendering="geometricPrecision">
+<rect x="0" y="0" width="160" height="144" fill="none" stroke="none" stroke-width="1" opacity="1"/>
+<polygon points="20,34 118,22 145,45 47,59" fill="#444b4c" stroke="#111517" stroke-width="2" opacity="1"/>
+<polygon points="47,59 145,45 145,120 47,134" fill="#2b3335" stroke="#111517" stroke-width="2" opacity="1"/>
+<polygon points="20,34 47,59 47,134 20,108" fill="#1a2022" stroke="#111517" stroke-width="2" opacity="1"/>
+<line x1="56" y1="70" x2="132" y2="60" stroke="#596164" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+</svg>

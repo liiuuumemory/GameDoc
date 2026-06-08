@@ -1,0 +1,159 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/Player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scripts/interactables/Terminal.gd" id="2_terminal"]
+[ext_resource type="Script" path="res://scripts/interactables/FacilityTerminal.gd" id="3_facility"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/floor_gate_two.svg" id="4_floor_gate"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/ward_idle.svg" id="5_ward"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/terminal_facility.svg" id="6_terminal_facility"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/shade_interface_panel.svg" id="7_shade_panel"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/doorway.svg" id="8_doorway"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/wall_tall.svg" id="9_wall_tall"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npc"]
+size = Vector2(38, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_terminal"]
+size = Vector2(52, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(76, 42)
+
+[node name="GateTwo" type="Node2D"]
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.12, 0.14, 0.15, 1)
+polygon = PackedVector2Array(20, 20, 940, 20, 940, 520, 20, 520)
+
+[node name="ArtFloor" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("4_floor_gate")
+
+[node name="GatePanel" type="Polygon2D" parent="."]
+color = Color(0.2, 0.24, 0.27, 1)
+polygon = PackedVector2Array(585, 115, 865, 115, 865, 430, 585, 430)
+
+[node name="ArtGateMass" type="Sprite2D" parent="."]
+position = Vector2(805, 255)
+scale = Vector2(1.35, 1.25)
+texture = ExtResource("9_wall_tall")
+
+[node name="StatusStripe" type="Polygon2D" parent="."]
+color = Color(0.32, 0.48, 0.56, 1)
+polygon = PackedVector2Array(610, 150, 840, 150, 840, 160, 610, 160)
+
+[node name="ArtShadePanel" type="Sprite2D" parent="."]
+position = Vector2(625, 350)
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("7_shade_panel")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 30.0
+offset_right = 340.0
+offset_bottom = 58.0
+text = "二号门 / Gate Two"
+
+[node name="Ward" type="Area2D" parent="."]
+position = Vector2(365, 235)
+script = ExtResource("2_terminal")
+prompt_text = "沃德女士"
+dialogue_path = "res://data/dialogues/ward.json"
+
+[node name="Visual" type="Polygon2D" parent="Ward"]
+color = Color(0.46, 0.58, 0.66, 1)
+polygon = PackedVector2Array(-16, -19, 16, -19, 16, 19, -16, 19)
+
+[node name="ArtSprite" type="Sprite2D" parent="Ward"]
+position = Vector2(0, -28)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("5_ward")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ward"]
+shape = SubResource("RectangleShape2D_npc")
+
+[node name="NameLabel" type="Label" parent="Ward"]
+offset_left = -42.0
+offset_top = 25.0
+offset_right = 86.0
+offset_bottom = 49.0
+text = "沃德女士"
+
+[node name="FacilityTerminal" type="Area2D" parent="."]
+position = Vector2(710, 245)
+script = ExtResource("3_facility")
+prompt_text = "设施终端"
+
+[node name="Visual" type="Polygon2D" parent="FacilityTerminal"]
+color = Color(0.18, 0.34, 0.45, 1)
+polygon = PackedVector2Array(-26, -19, 26, -19, 26, 19, -26, 19)
+
+[node name="ArtSprite" type="Sprite2D" parent="FacilityTerminal"]
+position = Vector2(0, -16)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("6_terminal_facility")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FacilityTerminal"]
+shape = SubResource("RectangleShape2D_terminal")
+
+[node name="TerminalLabel" type="Label" parent="FacilityTerminal"]
+offset_left = -42.0
+offset_top = 26.0
+offset_right = 76.0
+offset_bottom = 50.0
+text = "设施终端"
+
+[node name="ExitToMarket" type="Area2D" parent="."]
+position = Vector2(100, 390)
+script = ExtResource("2_terminal")
+prompt_text = "返回：市场街"
+mode = 2
+target_scene = "res://scenes/levels/MarketStreet.tscn"
+
+[node name="Visual" type="Polygon2D" parent="ExitToMarket"]
+color = Color(0.18, 0.36, 0.45, 1)
+polygon = PackedVector2Array(-38, -21, 38, -21, 38, 21, -38, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="ExitToMarket"]
+position = Vector2(0, -20)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("8_doorway")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToMarket"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="ExitLabel" type="Label" parent="ExitToMarket"]
+offset_left = -42.0
+offset_top = 28.0
+offset_right = 70.0
+offset_bottom = 52.0
+text = "市场街"
+
+[node name="ExitToOffice" type="Area2D" parent="."]
+position = Vector2(100, 455)
+script = ExtResource("2_terminal")
+prompt_text = "返回：测绘办公室"
+mode = 2
+target_scene = "res://scenes/levels/SurveyOffice.tscn"
+
+[node name="Visual" type="Polygon2D" parent="ExitToOffice"]
+color = Color(0.18, 0.45, 0.29, 1)
+polygon = PackedVector2Array(-38, -21, 38, -21, 38, 21, -38, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="ExitToOffice"]
+position = Vector2(0, -20)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("8_doorway")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOffice"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="ExitLabel" type="Label" parent="ExitToOffice"]
+offset_left = -52.0
+offset_top = 28.0
+offset_right = 86.0
+offset_bottom = 52.0
+text = "办公室"
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(130, 275)

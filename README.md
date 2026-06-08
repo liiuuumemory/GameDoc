@@ -8,6 +8,8 @@
 ## Documents
 
 - [Project Index](index.md)
+- [Godot Playable Demo](godot-demo/README.md)
+- [Godot Project File](godot-demo/project.godot)
 - [Story Structure](docs/story-structure.md)
 - [Naming System](docs/naming-system.md)
 - [Chapter 1: Outside](docs/story/chapter-01-outside.md)

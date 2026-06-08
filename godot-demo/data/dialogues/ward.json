@@ -1,0 +1,36 @@
+{
+  "start": {
+    "speaker": "沃德女士",
+    "text": "你要设施侧说明？终端在右边。",
+    "options": [
+      {
+        "text": "这些读数够吗？",
+        "next": "partial"
+      },
+      {
+        "text": "我去读终端。",
+        "next": "terminal"
+      }
+    ]
+  },
+  "partial": {
+    "speaker": "沃德女士",
+    "text": "够做补充材料。不够直接改状态。",
+    "options": [
+      {
+        "text": "明白。",
+        "next": null
+      }
+    ]
+  },
+  "terminal": {
+    "speaker": "沃德女士",
+    "text": "读处理后数据。别把说明写成结论。",
+    "options": [
+      {
+        "text": "收到。",
+        "next": null
+      }
+    ]
+  }
+}

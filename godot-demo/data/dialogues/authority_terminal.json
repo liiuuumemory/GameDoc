@@ -1,0 +1,26 @@
+{
+  "start": {
+    "speaker": "管理局终端",
+    "text": "临时复核已派发。先领取测绘仪和三枚信标。",
+    "options": [
+      {
+        "text": "确认。",
+        "set": {
+          "authority_briefing_done": true,
+          "current_objective": "领取测绘工具"
+        },
+        "next": "scope"
+      }
+    ]
+  },
+  "scope": {
+    "speaker": "管理局终端",
+    "text": "流程：市场街两枚信标，异常信号另行记录。报告回本终端提交。",
+    "options": [
+      {
+        "text": "去领工具。",
+        "next": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,337 @@
+[gd_scene load_steps=21 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/Player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scripts/interactables/Terminal.gd" id="2_terminal"]
+[ext_resource type="Script" path="res://scripts/interactables/BeaconPoint.gd" id="3_beacon"]
+[ext_resource type="Script" path="res://scripts/interactables/ScanPoint.gd" id="4_scan"]
+[ext_resource type="Script" path="res://scripts/interactables/LayerCompareTrigger.gd" id="5_compare"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/floor_old_blocks.svg" id="6_floor_old"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/jun_idle.svg" id="7_jun"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/elder_idle.svg" id="8_elder"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/beacon_placed.svg" id="9_beacon_placed"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/scan_marker_temp.svg" id="10_scan_temp"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/scan_marker_sensor.svg" id="11_scan_sensor"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/scan_marker_pipe.svg" id="12_scan_pipe"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/blocked_room.svg" id="13_blocked"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/pipe_surface.svg" id="14_pipe_surface"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/old_status_line.svg" id="15_status_line"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/doorway.svg" id="16_doorway"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npc"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beacon"]
+size = Vector2(42, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scan"]
+size = Vector2(50, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(74, 42)
+
+[node name="OldBlocks" type="Node2D"]
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.08, 0.09, 0.1, 1)
+polygon = PackedVector2Array(20, 20, 940, 20, 940, 520, 20, 520)
+
+[node name="ArtFloor" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("6_floor_old")
+
+[node name="RoomBlockA" type="Polygon2D" parent="."]
+color = Color(0.16, 0.16, 0.17, 1)
+polygon = PackedVector2Array(155, 120, 330, 120, 330, 230, 155, 230)
+
+[node name="ArtBlockedRoomA" type="Sprite2D" parent="."]
+position = Vector2(240, 180)
+scale = Vector2(1.15, 0.95)
+texture = ExtResource("13_blocked")
+
+[node name="RoomBlockB" type="Polygon2D" parent="."]
+color = Color(0.13, 0.13, 0.14, 1)
+polygon = PackedVector2Array(545, 105, 775, 105, 775, 210, 545, 210)
+
+[node name="ArtBlockedRoomB" type="Sprite2D" parent="."]
+position = Vector2(660, 165)
+scale = Vector2(1.2, 0.92)
+texture = ExtResource("13_blocked")
+
+[node name="ClosedFacility" type="Polygon2D" parent="."]
+color = Color(0.11, 0.12, 0.13, 1)
+polygon = PackedVector2Array(615, 335, 830, 335, 830, 445, 615, 445)
+
+[node name="ArtPipeSurface" type="Sprite2D" parent="."]
+position = Vector2(760, 400)
+scale = Vector2(1.35, 0.8)
+texture = ExtResource("14_pipe_surface")
+
+[node name="ArtOldStatusLine" type="Sprite2D" parent="."]
+position = Vector2(190, 430)
+scale = Vector2(1.55, 0.9)
+texture = ExtResource("15_status_line")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 30.0
+offset_right = 330.0
+offset_bottom = 58.0
+text = "旧街区 / Old Blocks"
+
+[node name="OldMarkerLabel" type="Label" parent="."]
+offset_left = 54.0
+offset_top = 470.0
+offset_right = 420.0
+offset_bottom = 496.0
+text = "旧标识：缓冲状态 / 待复核"
+
+[node name="Jun" type="Area2D" parent="."]
+position = Vector2(260, 230)
+script = ExtResource("2_terminal")
+prompt_text = "俊"
+dialogue_path = "res://data/dialogues/jun.json"
+
+[node name="Visual" type="Polygon2D" parent="Jun"]
+color = Color(0.82, 0.58, 0.25, 1)
+polygon = PackedVector2Array(-14, -18, 14, -18, 14, 18, -14, 18)
+
+[node name="ArtSprite" type="Sprite2D" parent="Jun"]
+position = Vector2(0, -26)
+scale = Vector2(0.53, 0.53)
+texture = ExtResource("7_jun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jun"]
+shape = SubResource("RectangleShape2D_npc")
+
+[node name="NameLabel" type="Label" parent="Jun"]
+offset_left = -18.0
+offset_top = 24.0
+offset_right = 44.0
+offset_bottom = 48.0
+text = "俊"
+
+[node name="Elder" type="Area2D" parent="."]
+position = Vector2(390, 275)
+script = ExtResource("2_terminal")
+prompt_text = "旧街区老人"
+dialogue_path = "res://data/dialogues/elder.json"
+
+[node name="Visual" type="Polygon2D" parent="Elder"]
+color = Color(0.52, 0.52, 0.48, 1)
+polygon = PackedVector2Array(-14, -18, 14, -18, 14, 18, -14, 18)
+
+[node name="ArtSprite" type="Sprite2D" parent="Elder"]
+position = Vector2(0, -28)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("8_elder")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elder"]
+shape = SubResource("RectangleShape2D_npc")
+
+[node name="NameLabel" type="Label" parent="Elder"]
+offset_left = -42.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 48.0
+text = "老人"
+
+[node name="BeaconPoint3" type="Area2D" parent="."]
+position = Vector2(325, 235)
+script = ExtResource("3_beacon")
+prompt_text = "信标 3"
+beacon_id = 3
+
+[node name="Visual" type="Polygon2D" parent="BeaconPoint3"]
+color = Color(0.28, 0.52, 0.82, 1)
+polygon = PackedVector2Array(0, -24, 24, 0, 0, 24, -24, 0)
+
+[node name="ArtSprite" type="Sprite2D" parent="BeaconPoint3"]
+position = Vector2(0, -14)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("9_beacon_placed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeaconPoint3"]
+shape = SubResource("RectangleShape2D_beacon")
+
+[node name="BeaconLabel" type="Label" parent="BeaconPoint3"]
+offset_left = -36.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 54.0
+text = "信标 3"
+
+[node name="IndoorTempScan" type="Area2D" parent="."]
+position = Vector2(455, 215)
+script = ExtResource("4_scan")
+prompt_text = "扫描：室内温度"
+scan_id = "indoor_temp"
+scan_type = "temperature"
+display_name = "室内温度读数"
+pre_scan_text = "门缝内侧有稳定温差。测绘仪建议先读室内温度。"
+result_text = "室内温度高于预测。读数稳定性：低至中等。"
+feedback_text = "温度读数已记录。目标更新。"
+sets_flag = "indoor_temp_measured"
+next_objective = "核对旧传感器"
+
+[node name="Visual" type="Polygon2D" parent="IndoorTempScan"]
+color = Color(0.42, 0.54, 0.62, 1)
+polygon = PackedVector2Array(-25, -21, 25, -21, 25, 21, -25, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="IndoorTempScan"]
+position = Vector2(0, -10)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("10_scan_temp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IndoorTempScan"]
+shape = SubResource("RectangleShape2D_scan")
+
+[node name="Label" type="Label" parent="IndoorTempScan"]
+offset_left = -54.0
+offset_top = 28.0
+offset_right = 92.0
+offset_bottom = 52.0
+text = "室内温度"
+
+[node name="OldSensorScan" type="Area2D" parent="."]
+position = Vector2(610, 305)
+script = ExtResource("4_scan")
+prompt_text = "扫描：旧传感器缓存"
+scan_id = "old_sensor_cache"
+scan_type = "sensor_cache"
+display_name = "旧传感器缓存"
+pre_scan_text = "墙边旧传感器仍有缓存指示。先核对它的近周期记录。"
+result_text = "旧传感器未纳入当前校正。近周期最低值高于预测。"
+feedback_text = "旧传感器缓存已读取。"
+sets_flag = "old_sensor_cache_read"
+required_flag = "indoor_temp_measured"
+blocked_text = "先读取现场温度。"
+next_objective = "检查低功率管线"
+
+[node name="Visual" type="Polygon2D" parent="OldSensorScan"]
+color = Color(0.42, 0.54, 0.62, 1)
+polygon = PackedVector2Array(-25, -21, 25, -21, 25, 21, -25, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="OldSensorScan"]
+position = Vector2(0, -10)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("11_scan_sensor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OldSensorScan"]
+shape = SubResource("RectangleShape2D_scan")
+
+[node name="Label" type="Label" parent="OldSensorScan"]
+offset_left = -58.0
+offset_top = 28.0
+offset_right = 100.0
+offset_bottom = 52.0
+text = "旧传感器"
+
+[node name="PipeScan" type="Area2D" parent="."]
+position = Vector2(780, 405)
+script = ExtResource("4_scan")
+prompt_text = "扫描：低功率管线"
+scan_id = "low_power_pipe"
+scan_type = "pipe"
+display_name = "低功率管线读数"
+pre_scan_text = "表层管线仍有低功率读数。登记信息不完整。"
+result_text = "管线读数高于登记值。归属：未确认。"
+feedback_text = "管线读数已记录。图层对比可生成。"
+sets_flag = "old_pipe_measured"
+required_flag = "old_sensor_cache_read"
+blocked_text = "先核对旧传感器。"
+next_objective = "生成图层对比"
+
+[node name="Visual" type="Polygon2D" parent="PipeScan"]
+color = Color(0.42, 0.54, 0.62, 1)
+polygon = PackedVector2Array(-25, -21, 25, -21, 25, 21, -25, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="PipeScan"]
+position = Vector2(0, -10)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("12_scan_pipe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeScan"]
+shape = SubResource("RectangleShape2D_scan")
+
+[node name="Label" type="Label" parent="PipeScan"]
+offset_left = -58.0
+offset_top = 28.0
+offset_right = 100.0
+offset_bottom = 52.0
+text = "管线读数"
+
+[node name="LayerCompareArea" type="Area2D" parent="."]
+position = Vector2(610, 430)
+script = ExtResource("5_compare")
+prompt_text = "生成图层对比"
+
+[node name="Visual" type="Polygon2D" parent="LayerCompareArea"]
+color = Color(0.36, 0.42, 0.34, 1)
+polygon = PackedVector2Array(-36, -21, 36, -21, 36, 21, -36, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LayerCompareArea"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="Label" type="Label" parent="LayerCompareArea"]
+offset_left = -54.0
+offset_top = 28.0
+offset_right = 90.0
+offset_bottom = 52.0
+text = "图层对比"
+
+[node name="ExitToMarket" type="Area2D" parent="."]
+position = Vector2(85, 430)
+script = ExtResource("2_terminal")
+prompt_text = "返回：市场街"
+mode = 2
+target_scene = "res://scenes/levels/MarketStreet.tscn"
+
+[node name="Visual" type="Polygon2D" parent="ExitToMarket"]
+color = Color(0.18, 0.36, 0.45, 1)
+polygon = PackedVector2Array(-37, -21, 37, -21, 37, 21, -37, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="ExitToMarket"]
+position = Vector2(0, -20)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("16_doorway")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToMarket"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="ExitLabel" type="Label" parent="ExitToMarket"]
+offset_left = -42.0
+offset_top = 28.0
+offset_right = 70.0
+offset_bottom = 52.0
+text = "市场街"
+
+[node name="ExitToGateTwo" type="Area2D" parent="."]
+position = Vector2(850, 430)
+script = ExtResource("2_terminal")
+prompt_text = "出口：二号门"
+mode = 2
+target_scene = "res://scenes/levels/GateTwo.tscn"
+required_flag = "layer_compare_done"
+blocked_text = "请先完成旧街区图层对比。"
+
+[node name="Visual" type="Polygon2D" parent="ExitToGateTwo"]
+color = Color(0.18, 0.34, 0.45, 1)
+polygon = PackedVector2Array(-37, -21, 37, -21, 37, 21, -37, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="ExitToGateTwo"]
+position = Vector2(0, -20)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("16_doorway")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToGateTwo"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="ExitLabel" type="Label" parent="ExitToGateTwo"]
+offset_left = -42.0
+offset_top = 28.0
+offset_right = 70.0
+offset_bottom = 52.0
+text = "二号门"
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(115, 430)

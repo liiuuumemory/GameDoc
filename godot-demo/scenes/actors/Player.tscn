@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/PlayerController.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/player/InteractionScanner.gd" id="2_scanner"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SurveyDeviceUI.tscn" id="3_survey_ui"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/surveyor_idle.svg" id="4_surveyor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(18, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scanner"]
+radius = 34.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player")
+
+[node name="Body" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.18, 0.65, 0.95, 1)
+polygon = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
+
+[node name="ArtSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("4_surveyor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="InteractionScanner" type="Area2D" parent="."]
+script = ExtResource("2_scanner")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionScanner"]
+shape = SubResource("CircleShape2D_scanner")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = true
+zoom = Vector2(1.2, 1.2)
+
+[node name="SurveyDeviceUI" parent="." instance=ExtResource("3_survey_ui")]

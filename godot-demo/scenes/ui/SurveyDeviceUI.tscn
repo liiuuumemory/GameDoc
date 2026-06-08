@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/SurveyDeviceUI.gd" id="1_survey_ui"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/icon_survey_device.svg" id="2_icon_device"]
+
+[node name="SurveyDeviceUI" type="CanvasLayer"]
+script = ExtResource("1_survey_ui")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -318.0
+offset_top = 72.0
+offset_right = -22.0
+offset_bottom = 190.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = -9.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="HeaderRow" type="HBoxContainer" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="DeviceIcon" type="TextureRect" parent="Panel/MarginContainer/VBox/HeaderRow"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture = ExtResource("2_icon_device")
+stretch_mode = 5
+
+[node name="DeviceTitle" type="Label" parent="Panel/MarginContainer/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "测绘仪"
+
+[node name="ObjectiveLabel" type="Label" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "当前目标："
+autowrap_mode = 3
+
+[node name="BeaconLabel" type="Label" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "信标：0/3 已布设，0 个信号偏移"
+
+[node name="ScanLabel" type="Label" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "旧街区扫描：0/3"
+
+[node name="CompareLabel" type="Label" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "图层对比：未解锁"

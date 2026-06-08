@@ -1,0 +1,34 @@
+{
+  "start": {
+    "speaker": "陈玛拉",
+    "text": "你是测绘员？先把第一枚放稳。第二枚在旧线前。",
+    "options": [
+      {
+        "text": "第二个点在哪？",
+        "set": {
+          "mara_intro_done": true,
+          "current_objective": "布设第二个信标"
+        },
+        "next": "reply"
+      },
+      {
+        "text": "我会按现场记录。",
+        "set": {
+          "mara_intro_done": true,
+          "current_objective": "布设第二个信标"
+        },
+        "next": "reply"
+      }
+    ]
+  },
+  "reply": {
+    "speaker": "陈玛拉",
+    "text": "旧线前面。你会看见标记。",
+    "options": [
+      {
+        "text": "知道了。",
+        "next": null
+      }
+    ]
+  }
+}

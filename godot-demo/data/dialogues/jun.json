@@ -1,0 +1,44 @@
+{
+  "start": {
+    "speaker": "俊",
+    "text": "我拿的。放这里，你们才会量这里。",
+    "options": [
+      {
+        "text": "信标要接回去。",
+        "set": {
+          "jun_met": true,
+          "current_objective": "查找偏移的第三信标"
+        },
+        "next": "keep"
+      },
+      {
+        "text": "这里还有人？",
+        "set": {
+          "jun_met": true,
+          "current_objective": "查找偏移的第三信标"
+        },
+        "next": "people"
+      }
+    ]
+  },
+  "keep": {
+    "speaker": "俊",
+    "text": "那你先量。别只拿走。",
+    "options": [
+      {
+        "text": "我会看读数。",
+        "next": null
+      }
+    ]
+  },
+  "people": {
+    "speaker": "俊",
+    "text": "你自己走进去看。",
+    "options": [
+      {
+        "text": "我先接回信标。",
+        "next": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+# Godot local/editor cache
+.godot/
+**/.godot/
+.import/
+**/.import/
+
+# Export outputs
+export/
+exported/
+**/export/
+**/exported/
+
+# Temporary files and logs
+*.tmp
+*.log

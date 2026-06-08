@@ -1,0 +1,15 @@
+{
+  "start": {
+    "speaker": "公告栏",
+    "text": "临时复核路线：沿街布设两枚信标。旧状态线外侧待记录。",
+    "options": [
+      {
+        "text": "继续沿街。",
+        "set": {
+          "current_objective": "在市场街布设第一个信标"
+        },
+        "next": null
+      }
+    ]
+  }
+}

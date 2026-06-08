@@ -1,0 +1,119 @@
+{
+  "options": [
+    {
+      "id": "maintain_buffer_status",
+      "title": "维持缓冲状态",
+      "description": "按现有轨道图层和居住状态推进。旧街区不作为长期居住区处理。",
+      "ending_summary": "报告按标准格式提交。旧街区现场材料被保留为备注，状态调整流程继续。",
+      "sets": {
+        "report_choice": "maintain_buffer_status"
+      }
+    },
+    {
+      "id": "delay_status_change",
+      "title": "暂缓状态变更",
+      "description": "以现场样本不足、读数不一致为理由，建议暂缓旧街区状态调整。",
+      "ending_summary": "状态调整被标记为需要补充材料。管理局要求下一周期继续复核。",
+      "condition": {
+        "any": [
+          {
+            "flag": "field_note_saved",
+            "equals": true
+          },
+          {
+            "value": "old_blocks_scan_count",
+            "min": 2
+          }
+        ]
+      },
+      "missing": "需要至少保存现场备注，或完成两个旧街区扫描点。",
+      "sets": {
+        "report_choice": "delay_status_change"
+      }
+    },
+    {
+      "id": "report_unregistered_residence",
+      "title": "上报未登记居住",
+      "description": "记录旧街区仍有人生活，并将其作为居住状态问题提交。",
+      "ending_summary": "旧街区居住活动被正式记录。相关住户将在下一周期进入状态核查。",
+      "condition": {
+        "any": [
+          {
+            "flag": "jun_met",
+            "equals": true
+          },
+          {
+            "flag": "old_blocks_entered",
+            "equals": true
+          }
+        ]
+      },
+      "missing": "需要进入旧街区，或与俊完成对话。",
+      "sets": {
+        "report_choice": "report_unregistered_residence",
+        "residents_reported": true
+      }
+    },
+    {
+      "id": "file_discrepancy_note",
+      "title": "提交偏差附录",
+      "description": "提交轨道图层与地面图层不一致的补充材料，建议扩大复核范围。",
+      "ending_summary": "偏差附录进入人工复核。材料不足以改变结论，但足以阻止直接归档。",
+      "condition": {
+        "any": [
+          {
+            "flag": "discrepancy_note_drafted",
+            "equals": true
+          },
+          {
+            "all": [
+              {
+                "value": "old_blocks_scan_count",
+                "min": 2
+              },
+              {
+                "flag": "facility_data_checked",
+                "equals": true
+              }
+            ]
+          }
+        ]
+      },
+      "missing": "需要完成图层对比，或核对设施侧数据。",
+      "sets": {
+        "report_choice": "file_discrepancy_note",
+        "discrepancy_note_submitted": true
+      }
+    },
+    {
+      "id": "file_without_names",
+      "title": "不记名提交",
+      "description": "提交现场读数和偏差材料，但不提交具体住户身份。",
+      "ending_summary": "材料已接收。样本来源不完整。管理局要求下一周期补充说明。",
+      "condition": {
+        "all": [
+          {
+            "flag": "field_note_saved",
+            "equals": true
+          },
+          {
+            "flag": "old_blocks_entered",
+            "equals": true
+          }
+        ]
+      },
+      "missing": "需要至少保存一份现场备注。",
+      "sets": {
+        "report_choice": "file_without_names",
+        "names_withheld": true
+      }
+    },
+    {
+      "id": "no_submit",
+      "title": "暂不提交",
+      "description": "退出报告终端，继续补充材料。",
+      "ending_summary": "",
+      "closes": true
+    }
+  ]
+}

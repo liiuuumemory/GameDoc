@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/DialogueBox.gd" id="1_dialogue"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("1_dialogue")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.18
+anchor_top = 1.0
+anchor_right = 0.82
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -150.0
+offset_right = 0.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = -16.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HeaderRow" type="HBoxContainer" parent="Panel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SpeakerLabel" type="Label" parent="Panel/MarginContainer/VBox/HeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "Speaker"
+
+[node name="CloseButton" type="Button" parent="Panel/MarginContainer/VBox/HeaderRow"]
+custom_minimum_size = Vector2(52, 24)
+layout_mode = 2
+text = "关闭"
+
+[node name="BodyLabel" type="Label" parent="Panel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Dialogue"
+autowrap_mode = 3
+
+[node name="OptionsBox" type="VBoxContainer" parent="Panel/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[connection signal="pressed" from="Panel/MarginContainer/VBox/HeaderRow/CloseButton" to="." method="_on_close_button_pressed"]

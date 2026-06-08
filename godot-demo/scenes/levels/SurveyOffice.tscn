@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/actors/Player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scripts/interactables/Terminal.gd" id="2_terminal"]
+[ext_resource type="Script" path="res://scripts/interactables/ReportTerminal.gd" id="3_report"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/floor_office.svg" id="4_floor_office"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/terminal_authority.svg" id="7_terminal_authority"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/beacon.svg" id="8_beacon"]
+[ext_resource type="Texture2D" path="res://assets/placeholder_2_5d/doorway.svg" id="9_doorway"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_terminal"]
+size = Vector2(44, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_box"]
+size = Vector2(44, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(70, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(920, 28)
+
+[node name="SurveyOffice" type="Node2D"]
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.18, 0.19, 0.19, 1)
+polygon = PackedVector2Array(20, 20, 940, 20, 940, 520, 20, 520)
+
+[node name="ArtFloor" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("4_floor_office")
+
+[node name="NorthWall" type="StaticBody2D" parent="."]
+position = Vector2(480, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 30.0
+offset_right = 330.0
+offset_bottom = 58.0
+text = "测绘办公室 / Survey Office"
+
+[node name="AuthorityTerminal" type="Area2D" parent="."]
+position = Vector2(245, 180)
+script = ExtResource("2_terminal")
+prompt_text = "管理局终端"
+dialogue_path = "res://data/dialogues/authority_terminal.json"
+
+[node name="Visual" type="Polygon2D" parent="AuthorityTerminal"]
+color = Color(0.22, 0.36, 0.46, 1)
+polygon = PackedVector2Array(-22, -18, 22, -18, 22, 18, -22, 18)
+
+[node name="ArtSprite" type="Sprite2D" parent="AuthorityTerminal"]
+position = Vector2(0, -16)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("7_terminal_authority")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AuthorityTerminal"]
+shape = SubResource("RectangleShape2D_terminal")
+
+[node name="TerminalLabel" type="Label" parent="AuthorityTerminal"]
+offset_left = -42.0
+offset_top = 24.0
+offset_right = 58.0
+offset_bottom = 48.0
+text = "终端"
+
+[node name="BeaconBox" type="Area2D" parent="."]
+position = Vector2(410, 250)
+script = ExtResource("2_terminal")
+prompt_text = "信标箱"
+mode = 1
+
+[node name="Visual" type="Polygon2D" parent="BeaconBox"]
+color = Color(0.55, 0.48, 0.23, 1)
+polygon = PackedVector2Array(-22, -17, 22, -17, 22, 17, -22, 17)
+
+[node name="ArtSprite" type="Sprite2D" parent="BeaconBox"]
+position = Vector2(0, -16)
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("8_beacon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeaconBox"]
+shape = SubResource("RectangleShape2D_box")
+
+[node name="BoxLabel" type="Label" parent="BeaconBox"]
+offset_left = -42.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 48.0
+text = "信标箱"
+
+[node name="ReportTerminal" type="Area2D" parent="."]
+position = Vector2(575, 180)
+script = ExtResource("3_report")
+prompt_text = "报告终端"
+
+[node name="Visual" type="Polygon2D" parent="ReportTerminal"]
+color = Color(0.2, 0.32, 0.44, 1)
+polygon = PackedVector2Array(-22, -18, 22, -18, 22, 18, -22, 18)
+
+[node name="ArtSprite" type="Sprite2D" parent="ReportTerminal"]
+position = Vector2(0, -16)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("7_terminal_authority")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReportTerminal"]
+shape = SubResource("RectangleShape2D_terminal")
+
+[node name="ReportLabel" type="Label" parent="ReportTerminal"]
+offset_left = -42.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 48.0
+text = "报告终端"
+
+[node name="ExitToMarket" type="Area2D" parent="."]
+position = Vector2(835, 330)
+script = ExtResource("2_terminal")
+prompt_text = "出口：市场街"
+mode = 2
+target_scene = "res://scenes/levels/MarketStreet.tscn"
+required_flag = "tools_received"
+blocked_text = "请先领取测绘仪和信标。"
+
+[node name="Visual" type="Polygon2D" parent="ExitToMarket"]
+color = Color(0.18, 0.45, 0.29, 1)
+polygon = PackedVector2Array(-35, -21, 35, -21, 35, 21, -35, 21)
+
+[node name="ArtSprite" type="Sprite2D" parent="ExitToMarket"]
+position = Vector2(0, -20)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("9_doorway")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToMarket"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="ExitLabel" type="Label" parent="ExitToMarket"]
+offset_left = -46.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+text = "市场街"
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(120, 330)
