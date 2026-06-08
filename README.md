@@ -13,4 +13,4 @@
 - [Chapter 1: Outside](docs/story/chapter-01-outside.md)
 - [Chapter 2: Review](docs/story/chapter-02-review.md)
 
-详细文档入口、剧透等级、demo 范围和写作边界见 [index.md](index.md)。
+详细文档索引、剧透等级和版本管理说明见 [index.md](index.md)。

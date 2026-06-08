@@ -1,6 +1,22 @@
 # Choice Variables
 ## 选择变量
 
+> 当前版本：v0.1
+> 最后更新：2026-06-08
+> 状态：Draft
+> 剧透等级：Design
+
+<details>
+<summary>历史版本</summary>
+
+- 暂无归档版本。
+
+</details>
+
+---
+
+## 当前版本
+
 本文档记录后续实现时可以使用的剧情变量方向。
 
 ## 变量方向
@@ -15,3 +31,13 @@
 
 变量应推动后续信息可见性和报告可信度，不应把故事简化成善恶值。
 
+---
+
+# Archived Versions / 历史版本归档
+
+<details>
+<summary>暂无归档版本</summary>
+
+暂无归档版本。
+
+</details>

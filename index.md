@@ -24,15 +24,16 @@
 ## Reading Order / 推荐阅读顺序
 
 1. [项目概述](docs/overview.md)
-2. [命名系统](docs/naming-system.md)
-3. [整体剧情结构](docs/story-structure.md)
-4. [北岸设定](docs/world/northbank.md)
-5. [派系动机](docs/world/factions.md)
-6. [越线者与传说](docs/world/rumors-and-linebreakers.md)
-7. [第一章：线外](docs/story/chapter-01-outside.md)
-8. [第二章：复核](docs/story/chapter-02-review.md)
-9. [隐藏支线：旧风道](docs/story/hidden-old-duct.md)
-10. [后期/真结局设定](docs/world/lower-works.md) — Internal / 剧透内部资料
+2. [文档版本管理](docs/versioning.md)
+3. [命名系统](docs/naming-system.md)
+4. [整体剧情结构](docs/story-structure.md)
+5. [北岸设定](docs/world/northbank.md)
+6. [派系动机](docs/world/factions.md)
+7. [越线者与传说](docs/world/rumors-and-linebreakers.md)
+8. [第一章：线外](docs/story/chapter-01-outside.md)
+9. [第二章：复核](docs/story/chapter-02-review.md)
+10. [隐藏支线：旧风道](docs/story/hidden-old-duct.md)
+11. [后期/真结局设定](docs/world/lower-works.md) — Internal / 剧透内部资料
 
 ## Spoiler Level / 剧透等级
 
@@ -43,28 +44,38 @@
 | Spoiler | 后期剧情、隐藏支线、真结局相关 |
 | Internal | 底层世界观真相，只供内部参考 |
 
+## Versioning / 版本管理
+
+- 每个主要文档只保留一个 `.md` 文件。
+- 当前版本显示在文档上方。
+- 历史版本保存在同一文件底部的折叠栏中。
+- `index.md` 只链接当前主文档。
+- 旧版本只作参考，不代表当前设定。
+- 后续重大修改时，不要覆盖旧内容；先把旧内容移动到本文档底部的“历史版本归档”折叠栏，再更新当前版本。
+
 ## Document Index / 文档索引
 
-| Category | Document | Status | Spoiler Level | Notes |
-|---|---|---|---|---|
-| Overview | [docs/overview.md](docs/overview.md) | 已整理 | Public | 项目阶段与写作边界 |
-| Naming | [docs/naming-system.md](docs/naming-system.md) | 已整理 | Public | 英文正式名与中文正文用名 |
-| Story | [docs/story-structure.md](docs/story-structure.md) | 已整理 | Design | 四章结构与真结局路线 |
-| World | [docs/world/northbank.md](docs/world/northbank.md) | 已整理 | Design | 北岸、表层接缝、温度反常 |
-| World | [docs/world/factions.md](docs/world/factions.md) | 已整理 | Design | 居民、管理局、设施方、安息所、越线者 |
-| World | [docs/world/rumors-and-linebreakers.md](docs/world/rumors-and-linebreakers.md) | 已整理 | Design | 越线者材料与线外传言 |
-| World | [docs/world/lower-works.md](docs/world/lower-works.md) | 已整理 | Internal | 后期/真结局内部设定 |
-| Story | [docs/story/chapter-01-outside.md](docs/story/chapter-01-outside.md) | 完整脚本 | Design | Demo 主体范围 |
-| Story | [docs/story/chapter-02-review.md](docs/story/chapter-02-review.md) | 结构已定 | Design | 核查、名单、降载与分类 |
-| Story | [docs/story/hidden-old-duct.md](docs/story/hidden-old-duct.md) | 概念已定 | Spoiler | 后期隐藏支线 |
-| Story | [docs/story/chapter-03-failure.md](docs/story/chapter-03-failure.md) | 占位 | Design | 七号泵房故障 |
-| Story | [docs/story/chapter-04-decision.md](docs/story/chapter-04-decision.md) | 占位 | Design | 最终复核报告 |
-| Story | [docs/story/true-ending-a-place-still-warm.md](docs/story/true-ending-a-place-still-warm.md) | 占位 | Spoiler | 真结局方向 |
-| Design | [docs/design/report-system.md](docs/design/report-system.md) | 已整理 | Design | 报告选项与后果 |
-| Design | [docs/design/survey-system.md](docs/design/survey-system.md) | 已整理 | Design | 信标、图层、模型偏差 |
-| Design | [docs/design/choice-variables.md](docs/design/choice-variables.md) | 已整理 | Design | 剧情变量方向 |
-| Art | [docs/art/visual-direction.md](docs/art/visual-direction.md) | 已整理 | Public | 北岸视觉方向 |
-| Production | [docs/production/demo-scope.md](docs/production/demo-scope.md) | 已整理 | Public | 当前 demo 范围 |
+| Category | Document | Version | Status | Spoiler Level | Notes |
+|---|---|---|---|---|---|
+| Overview | [项目概述](docs/overview.md) | v0.2 | Draft | Public | 项目阶段与写作边界 |
+| Versioning | [文档版本管理](docs/versioning.md) | v0.1 | Draft | Public | 同文件历史版本规则 |
+| Naming | [命名系统](docs/naming-system.md) | v0.2 | Draft | Public | 英文正式名与中文正文用名 |
+| Story | [整体剧情结构](docs/story-structure.md) | v0.3 | Draft | Design | 四章结构与真结局路线 |
+| World | [北岸设定](docs/world/northbank.md) | v0.2 | Draft | Design | 北岸、表层接缝、温度反常 |
+| World | [派系动机](docs/world/factions.md) | v0.2 | Draft | Design | 居民、管理局、设施方、安息所、越线者 |
+| World | [越线者与传说](docs/world/rumors-and-linebreakers.md) | v0.2 | Draft | Design | 越线者材料与线外传言 |
+| World | [后期/真结局设定](docs/world/lower-works.md) | v0.2 | Draft | Internal | 底层世界观内部资料 |
+| Story | [第一章：线外](docs/story/chapter-01-outside.md) | v1.0 | Complete | Design | Demo 主体范围 |
+| Story | [第二章：复核](docs/story/chapter-02-review.md) | v0.2 | Draft | Design | 核查、名单、降载与分类 |
+| Story | [隐藏支线：旧风道](docs/story/hidden-old-duct.md) | v0.1 | Draft | Spoiler | 后期隐藏支线 |
+| Story | [第三章：故障](docs/story/chapter-03-failure.md) | v0.1 | Placeholder | Design | 七号泵房故障 |
+| Story | [第四章：决定](docs/story/chapter-04-decision.md) | v0.1 | Placeholder | Design | 最终复核报告 |
+| Story | [真结局：仍有余温之地](docs/story/true-ending-a-place-still-warm.md) | v0.1 | Placeholder | Spoiler | 真结局方向 |
+| Design | [报告系统](docs/design/report-system.md) | v0.1 | Draft | Design | 报告选项与后果 |
+| Design | [测绘系统](docs/design/survey-system.md) | v0.1 | Draft | Design | 信标、图层、模型偏差 |
+| Design | [选择变量](docs/design/choice-variables.md) | v0.1 | Draft | Design | 剧情变量方向 |
+| Art | [视觉方向](docs/art/visual-direction.md) | v0.1 | Draft | Public | 北岸视觉方向 |
+| Production | [Demo 范围](docs/production/demo-scope.md) | v0.1 | Draft | Public | 当前 demo 范围 |
 
 ## Demo Scope / Demo 范围
 
@@ -107,4 +118,4 @@
 - 加入安息所与越线者。
 - 加入隐藏支线《旧风道》。
 - 确定真结局标题《仍有余温之地》。
-- 增加写作边界与剧透等级标记。
+- 增加写作边界、剧透等级和版本管理说明。
