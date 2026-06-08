@@ -13,3 +13,9 @@ Main index:
 ```text
 docs/index.md
 ```
+
+Naming system:
+
+```text
+naming-system.md
+```
