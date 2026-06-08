@@ -12,6 +12,13 @@
 |---|---|---|---|
 | EP01 | Chapter 1: Outside（第一章：线外） / Demo 章节脚本 | 已上传 | [阅读 EP01](episodes/ep01.md) |
 
+## 总纲与规范
+
+| 文档 | 用途 | 链接 |
+|---|---|---|
+| Overall Story Structure（整体剧情结构） | 完整剧情总纲、章节衔接和主题主线 | [阅读总纲](story-structure.md) |
+| Naming System（命名系统） | 项目命名、术语、角色名和废弃词清单 | [查看规范](https://github.com/liiuuumemory/GameDoc/blob/main/naming-system.md) |
+
 ## 后续章节预留
 
 | 编号 | 标题 | 状态 |
